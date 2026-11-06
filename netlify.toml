@@ -1,0 +1,10 @@
+[build]
+  functions = "netlify/functions"
+
+# 拦截所有发往 tk.mrhe.net 的 OPTIONS 预检请求，强行返回跨域头
+[[headers]]
+  for = "/.netlify/functions/twikoo"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://memo.mrhe.net,https://tk.mrhe.net"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
